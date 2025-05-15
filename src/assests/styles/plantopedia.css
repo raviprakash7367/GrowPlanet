@@ -1,4 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.plantopedia-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a472a, #2d5a3f);
+    padding: 20px;
+}
+
+.plantopedia-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 60px;
+}
+
+#plantopedia-brand {
+    margin-bottom: 40px;
+}
+
+#plantopedia-brand-text {
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.plantopedia-subtitle {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 8px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+}
+
+.search-icon {
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.search-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 12px;
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+.search-box button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.search-suggestions {
+    text-align: center;
+    color: #ffffff;
+}
+
+.search-suggestions p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.suggestion-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.suggestion-tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.features-section, .quick-links-section {
+    margin-bottom: 60px;
+}
+
+.features-section h2, .quick-links-section h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.category-grid, .quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.category-card, .quick-link-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.category-card:hover, .quick-link-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.category-card h3, .quick-link-card h3 {
+    color: #ffffff;
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+}
+
+.category-card p, .quick-link-card p {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.quick-link-card i {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .plantopedia-content {
+        padding: 10px;
+    }
+
+    #plantopedia-brand-text {
+        font-size: 2.5rem;
+    }
+
+    .plantopedia-subtitle {
+        font-size: 1rem;
+    }
+
+    .search-box {
+        margin: 0 10px 20px;
+    }
+
+    .search-form {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .search-box input {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .category-grid, .quick-links-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .category-card, .quick-link-card {
+        padding: 20px;
+    }
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.category-card, .quick-link-card {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.category-card:nth-child(2), .quick-link-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.category-card:nth-child(3), .quick-link-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.category-card:nth-child(4), .quick-link-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
 
 .animated-bg {
     position: absolute;
@@ -10,60 +281,4 @@
     background-image: url('/images/background.jpg');
     background-position: center;
     background-size: cover;
-    
-    
-    
-    
-   
-}
-.search-box {
-    margin: 50px auto;
-    width: 50%;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border-radius: 100px;
-    box-shadow: 0px 0px 5px #ccc;
-    display: flex;
-    align-items: center;
-    border: none;
-}
-.search-box input[type="text"] {
-    flex: 1;
-   
-    
-    border: none;
-    background-color: transparent;
-    font-size: 16px;
-   
-    padding: 5px;
-    outline: none;
-}
-.search-box button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 100px;
-    margin-left: 470px;
-    cursor: pointer;
-}
-.search-box button i {
-    margin-right: 5px;
-}
-
-#plantopedia-brand{
-    color: white;
-    margin-top: 5rem;
-    text-align: center;
-    margin-left: 2.5rem;
-    
-    
-}
-#plantopedia-brand-text{
-    font:  normal normal 700 100px/50px Segoe UI;
-    margin-bottom: 8rem;
-    text-shadow: 3rem;
-    -webkit-text-stroke-width: 0.3px;
-  -webkit-text-stroke-color: #E7B10A;
-  letter-spacing: 1.5rem;
 }

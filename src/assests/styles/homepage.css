@@ -1,195 +1,292 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-.inline-elements{
-    display: inline-block;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-.header-text{
-    
-    text-align: left;
+
+body {
+    overflow-x: hidden;
+}
+
+/* Navigation Styles */
+nav {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0;
+    line-height: normal;
+}
+
+.header-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #FFFFFF;
     text-decoration: none;
-    font: normal normal 400 30px/50px Segoe UI;
-    letter-spacing: 0px;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.header-text:hover {
+    background-color: rgba(255, 255, 255, 0.2);
     color: #FFFFFF;
-    opacity: 1;
 }
 
-
-.homepage{
-    width: 100%;
-}
-.section-green{
-    background-color: #617143;
-    height: auto;
-}
-.section-light{
-    background-color: #DF7857;
-    /* background-color: #E7AB9A; */
-    /* background-color: #5D9C59; */
-}
-
-nav ul{
-    float: right;
-    margin-right: 20px;
-}nav ul li{
-   display: inline-block;
-   line-height: 80px;
-   
-   margin: 17px 15px;
-}
-.grow_planet{
-    display: inline-block;
-    text-align: left;
+.grow_planet {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #FFFFFF;
     text-decoration: none;
-    font: normal normal 500 40px/53px Segoe UI;
-    letter-spacing: 0px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-image {
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+}
+
+/* Updated Section Styles */
+.section-green {
+    background-color: #2E5522;
+    min-height: 100vh;
+    padding: 2rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-light {
+    background-color: #8B4513;
+    padding: 6rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 4rem 0;
+}
+
+.first-section-text-div {
+    flex: 1;
+    position: relative;
+    left: 0;
+    top: 0;
+    max-width: 600px;
+}
+
+.first-section-text {
+    font-size: 4rem;
+    font-weight: 800;
     color: #FFFFFF;
-    opacity: 1;
-    margin-top: 22px;
+    line-height: 1.2;
+    margin-bottom: 2rem;
 }
-.brand-image{
-    
-    margin: 0px 5px 15px 20px;
-    padding: 10px;
-}
-.welcome-text{
-    margin-left: 10%;
-    display: inline-block;
-}
-.plant-image{
-    display: inline-block;
+
+.plant-image {
+    width: 40%;
+    max-width: 500px;
+    margin: 0;
     position: relative;
-    width: 10rem;
-    margin-top: 50px;
-    width:30%;
-    left:20%;
-    margin-bottom: 50px;
+    left: 0;
+    animation: float 3s ease-in-out infinite;
 }
-.book-image{
-    display: inline-block;
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Feature Sections */
+.feature-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 4rem 0;
+}
+
+.book-image {
+    width: 40%;
+    max-width: 500px;
     position: relative;
-    width: 30%;
-    left:15%;
+    left: 0;
+    transition: transform 0.3s ease;
 }
-.first-section-text-div{
+
+.book-image:hover {
+    transform: scale(1.05);
+}
+
+.second-section-text-div {
+    flex: 1;
     position: relative;
-    left: 15%;
-    top: 5rem;
-    
+    left: 0;
+    top: 0;
+    max-width: 600px;
+    margin: 0;
 }
-.first-section-text{
-    
-    font: normal normal 800 4rem/4rem Segoe UI;
-    letter-spacing: 0px;
+
+.second-section-text {
+    font-size: 3.5rem;
+    font-weight: 800;
     color: #FFFFFF;
-    opacity: 1;
-    
-    left: 10%;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
-.second-section-text-div{
+
+.second-section-text:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Updated Button Styles */
+.my-btn {
+    background: #FFFFFF;
+    color: #2E5522 !important;
+    border: 2px solid #FFFFFF;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin: 0.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.my-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    background: #2E5522;
+    color: #FFFFFF !important;
+}
+
+/* Footer */
+.footer-images-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.image-footer {
+    width: 40px;
     position: relative;
-    left: 15%;
-    top: 8rem;
-    margin-left: 9rem;
-    
-}
-.second-section-text{
-    
-    font: normal normal 800 70px/60px Segoe UI;
-    letter-spacing: 0px;
-    color: #FFFFFF;
-    opacity: 1;
-
-    
-    left: 10%;
+    transition: all 0.3s ease;
 }
 
-.image-footer{
-    position: relative;
-    width: 3%;
-    margin: 20px 5px 20px 5px;
-   
+.image-footer:hover {
+    transform: translateY(-5px);
 }
-    
-    
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-
-   
-    .homepage {
-      width: 90%;
-      margin: 0 auto;
+/* Mobile Responsiveness Improvements */
+@media only screen and (max-width: 768px) {
+    .first-section-text {
+        font-size: 2.8rem;
     }
-  
-   
-    .plant-image {
-      width: 50%;
-      left: 25%;
-      margin-top: 30px;
-      margin-bottom: 30px;
+
+    .second-section-text {
+        font-size: 2.5rem;
     }
-  
-    
+
+    .my-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        width: 90%;
+        margin: 0.5rem auto;
+        display: block;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-text {
+        display: block;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* New Helper Classes */
+.icon-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1024px) {
+    .first-section-text {
+        font-size: 3rem;
+    }
+
+    .second-section-text {
+        font-size: 2.8rem;
+    }
+
+    .hero-section,
+    .feature-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .plant-image,
     .book-image {
-      width: 40%;
-      left: 30%;
+        width: 60%;
+        margin: 0 auto;
     }
-   
-    .first-section-text-div {
-      left: 10%;
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
     }
-  
-    
-    .second-section-text-div {
-      left: 10%;
-      top: 10rem;
-      margin-left: 0;
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
     }
-  
-    
-    .image-footer {
-      width: 5%;
-    }
-  }
-  
-  
-  @media only screen and (max-width: 767px) {
-  
-   
-    .homepage {
-      width: 90%;
-      margin: 0 auto;
-    }
-  
-   
-    .plant-image {
-      width: 70%;
-      left: 15%;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-  
-   
-    .book-image {
-      width: 60%;
-      left: 20%;
-    }
-  
-   
-    .first-section-text-div {
-      left: 10%;
-      top: 2rem;
-    }
-  
-    
-    .second-section-text-div {
-      left: 10%;
-      top: 10rem;
-      margin-left: 0;
-    }
-  
-   
-    .image-footer {
-      width: 10%;
-    }
-  }
+}
   

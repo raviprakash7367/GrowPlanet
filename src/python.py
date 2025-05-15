@@ -1,31 +1,66 @@
+import sys
+import warnings
+warnings.filterwarnings('ignore')  # Suppress all warnings
+
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
+from joblib import load
+import os
 
-import sklearn as sk
+# Get the directory containing this script
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
-from sklearn.preprocessing import StandardScaler
-from sklearn import svm
+try:
+    # Load the model using absolute path
+    model = load(os.path.join(script_dir, 'model.joblib'))
 
-import sys
+    # Get command line arguments
+    args = sys.argv[1:]
+    
+    if len(args) != 7:
+        print("ERROR: Incorrect number of parameters")
+        sys.exit(1)
+        
+    # Convert arguments to float and create input array
+    try:
+        input_data = np.array([float(x) for x in args]).reshape(1, -1)
+    except ValueError:
+        print("ERROR: Invalid parameter values")
+        sys.exit(1)
+        
+    # Make prediction
+    prediction = model.predict(input_data)
+    
+    # Map prediction to crop name
+    crop_dict = {
+        0: "Apple",
+        1: "Banana",
+        2: "Blackgram",
+        3: "Chickpea",
+        4: "Coconut",
+        5: "Coffee",
+        6: "Cotton",
+        7: "Grapes",
+        8: "Jute",
+        9: "Kidneybeans",
+        10: "Lentil",
+        11: "Maize",
+        12: "Mango",
+        13: "Mothbeans",
+        14: "Mungbean",
+        15: "Muskmelon",
+        16: "Orange",
+        17: "Papaya",
+        18: "Pigeonpeas",
+        19: "Pomegranate",
+        20: "Rice",
+        21: "Watermelon"
+    }
+    
+    result = crop_dict.get(prediction[0], "Unknown Crop")
+    print(result)
+    sys.stdout.flush()  # Ensure output is flushed
 
-from sklearn import model_selection, datasets
-from sklearn.tree import DecisionTreeClassifier
-import joblib
-import pickle
-# Save the trained model as a pickle string.
-
-  
-# Load the pickled model
-model = joblib.load('model.joblib')
-# print(model.predict(np.asarray((1,2,3,4,5,6,4)).reshape(1,-1)))
-
-input_data=((sys.argv[1]),(sys.argv[2]),(sys.argv[3]),(sys.argv[4]),(sys.argv[5]),(sys.argv[6]),(sys.argv[7]))
-input_data_as_numpy=np.asarray(input_data)
-input_data_reshaped=input_data_as_numpy.reshape(1,-1)
-prediction=model.predict(input_data_reshaped)
-dic={ 20:'rice', 11:'maize',3: 'chickpea', 9:'kidneybeans', 18:'pigeonpeas', 13:'mothbeans', 14:'mungbean', 2:'blackgram', 10:'lentil', 19:'pomegranate', 1:'banana', 12:'mango', 7:'grapes', 21:'watermelon', 15:'muskmelon', 0:'apple', 16:'orange', 17:'papaya', 4:'coconut', 6:'cotton', 8:'jute', 5:'coffee'}
-print(dic[(prediction[0])])
-# print(prediction)
+except Exception as e:
+    print(f"ERROR: {str(e)}")
+    sys.exit(1)

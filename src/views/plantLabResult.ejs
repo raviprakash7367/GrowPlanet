@@ -40,21 +40,29 @@
             <h1 id="plantopedia-brand-text">Plant Lab</h1>
         </div>
         <div class="plant">
-          
-          <%var result=(data).toUpperCase()%>
+          <% if (typeof data !== 'undefined' && data) { %>
+            <% if (error) { %>
+              <div class="error-message">
+                <h2><%= data %></h2>
+                <a href="plantLab.html"><button class="btn form-btn">Try Again</button></a>
+              </div>
+            <% } else { %>
+              <% var result = data.toUpperCase(); %>
+              <h1>The best plant to grow in the given conditions and soil is <span style="font-size:50px; color: blue;"><%= result %></span></h1>
 
-            <h1>The best plant to grow in the given conditions and soil is <span style="font-size:50px; color: blue;" ><%=result%></span></h1>
+              <form action="/plantopedia" method="post">
+                <input style="display: none;" type="text" value="<%= data %>" name="plant_name">
+                <button type="submit" class="btn form-btn">View on Plantopedia</button>
+              </form>
 
-            <form action="/plantopedia" method="post">
-              <input style="display: none;" type="text" value="<%=data%>" name="plant_name">
-              <button type="submit"  class="btn form-btn">View on Plantopedia</button>
-
-            </form>
-
-            <a href="plantLab.html"><button style="margin-left: 18rem;" class="btn form-btn">Go Back</button></a>
-           
-              
-            
+              <a href="plantLab.html"><button style="margin-left: 18rem;" class="btn form-btn">Go Back</button></a>
+            <% } %>
+          <% } else { %>
+            <div class="error-message">
+              <h2>No data available. Please try again.</h2>
+              <a href="plantLab.html"><button class="btn form-btn">Try Again</button></a>
+            </div>
+          <% } %>
         </div>
         <div class="animated-bg"></div>
 

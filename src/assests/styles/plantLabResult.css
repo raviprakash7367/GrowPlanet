@@ -1,5 +1,3 @@
-
-
 .inline-elements{
     display: inline-block;
 }
@@ -181,3 +179,23 @@ h1 {
     border: 2px solid #007bff;
     color: #007bff;
   }
+
+.error-message {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.error-message h2 {
+    margin-bottom: 20px;
+    color: #721c24;
+}
+
+.error-message .btn {
+    margin-top: 10px;
+}

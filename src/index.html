@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowPlanet - Your Smart Farming Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, #ffffff, transparent);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .marketplace-section {
+            padding: 100px 20px;
+            background: #E85D3D;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .marketplace-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .marketplace-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .marketplace-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .marketplace-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .marketplace-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .marketplace-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .crop-bid-section {
+            padding: 100px 20px;
+            background: #556B2F;
+            color: white;
+            position: relative;
+        }
+
+        .crop-bid-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .crop-bid-text {
+            flex: 1;
+        }
+
+        .crop-bid-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .crop-bid-text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .crop-bid-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .crop-bid-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .features {
+            padding: 100px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 60px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h3 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, #ffffff, transparent);
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .mic-hint {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: float 3s ease-in-out infinite;
+            z-index: 998;
+            border: 2px solid #4CAF50;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .mic-hint span {
+            color: #4CAF50;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .mic-hint .arrow {
+            font-size: 1.8rem;
+            color: #4CAF50;
+            animation: point 1s ease-in-out infinite;
+        }
+
+        @keyframes point {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        @media (max-width: 1200px) {
+            .marketplace-content,
+            .crop-bid-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .marketplace-text,
+            .crop-bid-text {
+                padding-right: 0;
+            }
+
+            .marketplace-image,
+            .crop-bid-image {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .marketplace-text h2,
+            .crop-bid-text h2,
+            .features h2,
+            .cta h2 {
+                font-size: 2.5rem;
+            }
+
+            .mic-hint {
+                bottom: 80px;
+                right: 20px;
+                padding: 15px 25px;
+            }
+
+            .feature-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div>
+            <h1>Welcome to GrowPlanet</h1>
+            <p>Your intelligent farming assistant powered by voice technology. Get instant answers to your farming questions in English or हिंदी.</p>
+        </div>
+    </div>
+
+    <section class="marketplace-section">
+        <div class="marketplace-content">
+            <div class="marketplace-text">
+                <h2>Sell Here</h2>
+                <p>Get the most benefit out of your crops by selecting the best place over the map to plan and sell your market. Connect directly with buyers and get the best prices for your produce.</p>
+            </div>
+            <div class="marketplace-image">
+                <img src="https://images.unsplash.com/photo-1595665593673-bf1ad72905c0?q=80&w=1000" alt="Marketplace">
+            </div>
+        </div>
+    </section>
+
+    <section class="crop-bid-section">
+        <div class="crop-bid-content">
+            <div class="crop-bid-text">
+                <h2>Crop Bid</h2>
+                <p>Bid your crops among top buyers and select the best price for your crop. Our platform ensures you get competitive prices through transparent bidding processes.</p>
+            </div>
+            <div class="crop-bid-image">
+                <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?q=80&w=1000" alt="Crop Bidding">
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>How Can We Help You?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3>Crop Selection</h3>
+                <p>Get personalized recommendations for which crops to plant based on your soil conditions and season.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🐛</div>
+                <h3>Pest Control</h3>
+                <p>Learn about natural and effective methods to protect your crops from pests and diseases.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💧</div>
+                <h3>Irrigation Advice</h3>
+                <p>Receive guidance on optimal watering schedules and techniques for your crops.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌤️</div>
+                <h3>Weather Updates</h3>
+                <p>Stay informed about weather conditions that might affect your farming activities.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Market Prices</h3>
+                <p>Get current market prices for various crops to help you make informed decisions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Soil Quality</h3>
+                <p>Learn techniques to improve and maintain your soil quality for better yields.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Start Your Smart Farming Journey</h2>
+        <p>Click the microphone icon to ask questions and get instant farming advice in your preferred language.</p>
+    </section>
+
+    <div class="mic-hint">
+        <span>Ask your question here</span>
+        <div class="arrow">→</div>
+    </div>
+
+    <script src="voice_assistant/voiceAssistant.js"></script>
+</body>
+</html> 
